@@ -1,21 +1,22 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import { EListItem } from 'react-native-element';
+import { ListItem } from 'react-native-element';
 
 function Menu(props) {
 
-    const renderMenuItem = ({item, index}) => {
+     renderMenuItem = ({item, index}) => {
 
         return (
-                <EListItem
-                    key={index}
-                    title={item.name}
-                    subtitle={item.description}
-                    hideChevron={true}
-                    leftAvatar={{ source: require('./images/uthappizza.png')}}
-                  />
+            <ListItem
+            key={index}
+            title={item.name}
+            subtitle={item.description}
+            hideChevron={true}
+            onPress={() => props.onPress(item.id)}
+            leftAvatar={{ source: require('./images/uthappizza.png')}}
+          />
         );
-    };
+    }
 
     return (
             <FlatList 
